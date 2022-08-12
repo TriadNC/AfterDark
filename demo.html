@@ -1,0 +1,71 @@
+<html>
+<head><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script></head>
+
+
+<script>
+    let me =""
+
+
+let personOne = {"myIdentity":"male","seeking":"female","user":"userone"};
+
+let personTwo =  {"myIdentity":"female","seeking":"male","user":"usertwo"};
+
+
+
+let people = [personOne,personTwo];
+
+
+
+for (let i = 0; i <people.length; i++) {
+ if (me.seeking == people[i].myIdentity){
+
+    console.log(people[i].user)
+ }
+
+} 
+
+
+function myFilterFunct(){
+
+
+    let myIDSelect =  $('input[name="myID"]:checked').val();
+
+    let me = {"myIdentity":myIDSelect,"seeking":"female","user":"userthree"}
+
+
+    $('#appendHere').html("")
+
+
+    for (let i = 0; i <people.length; i++) {
+ if (me.myIdentity == people[i].seeking){
+
+    $('#appendHere').append(people[i].user) 
+  
+ }
+
+
+}
+
+}
+
+</script>
+
+<div>I am a </div> 
+<input type="radio" id="my-identity" name="myID" value="male" checked>
+<label for="male">Male</label>
+<input type="radio" id="my-identity" name="myID" value="female">
+<label for="female">Female</label>
+<input type="radio" id="my-identity" name="myID" value="Non-binary">
+<label for="Non-binary">Non-binary</label>
+<input type="radio" id="my-identity" name="myID" value="Transgender">
+<label for="transgender">Transgender</label>
+
+<div>
+<button onclick="myFilterFunct()">Who is seeking someone with the selections you have chosen?</button>
+</div>
+
+
+<div id="appendHere"></div>
+
+
+</html>
